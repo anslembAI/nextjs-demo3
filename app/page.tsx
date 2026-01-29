@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { Destinations } from "@/components/destinations";
+import { VirtualTravelVisa } from "@/components/virtual-travel-visa";
 import { Testimonials } from "@/components/testimonials";
 import { Contact } from "@/components/contact";
 import { Footer } from "@/components/footer";
@@ -11,6 +12,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Destinations />
+      <VirtualTravelVisa />
       <Testimonials />
       <Contact />
       <Footer />
