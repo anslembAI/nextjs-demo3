@@ -28,7 +28,7 @@ export function Hero() {
           {/* Heading */}
           <h1 className="text-responsive-h1 font-bold tracking-tight mb-6 animate-slide-up">
             Discover the World with{" "}
-            <span className="text-gradient">Global Horizon</span>
+            <span className="text-gradient">Voyage Collective</span>
           </h1>
 
           {/* Subheading */}

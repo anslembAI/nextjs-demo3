@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import ConvexClientProvider from "@/lib/convexClient";
+import { AuthProvider } from "@/lib/auth-context";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Global Horizon Travel | Premium Travel Experiences",
-  description: "Discover the world with Global Horizon. Premium travel experiences, curated destinations, and personalized journeys await.",
+  title: "Voyage Collective by VTS | Premium Travel Experiences",
+  description: "Discover the world with Voyage Collective by VTS. Premium travel experiences, curated destinations, and personalized journeys await.",
 };
 
 export default function RootLayout({
@@ -20,7 +22,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.variable}>{children}</body>
+      <body className={inter.variable}>
+        <ConvexClientProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </ConvexClientProvider>
+      </body>
     </html>
   );
 }

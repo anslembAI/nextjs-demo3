@@ -1,8 +1,8 @@
-# Global Horizon Travel
+# Voyage Collective by VTS
 
 A modern, premium travel agency landing page built with Next.js, TypeScript, Tailwind CSS, and shadcn/ui components.
 
-## Theme: "Global Horizon"
+## Theme: "Voyage Collective by VTS"
 
 A modern, premium travel + AI-forward theme with:
 - Global, sleek, premium, airy aesthetic

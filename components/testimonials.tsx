@@ -13,7 +13,7 @@ const testimonials = [
     destination: "Paris, France",
     rating: 5,
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80",
-    text: "Global Horizon made our honeymoon absolutely magical. Every detail was perfectly planned, from the private Eiffel Tower dinner to the hidden gems only locals know about. We'll definitely book with them again!",
+    text: "Voyage Collective by VTS made our honeymoon absolutely magical. Every detail was perfectly planned, from the private Eiffel Tower dinner to the hidden gems only locals know about. We'll definitely book with them again!",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ const testimonials = [
     destination: "Santorini, Greece",
     rating: 5,
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80",
-    text: "I've traveled to many places, but Global Horizon's Santorini package exceeded all expectations. The boutique hotel they recommended was stunning, and the sunset catamaran cruise was unforgettable.",
+    text: "I've traveled to many places, but Voyage Collective by VTS's Santorini package exceeded all expectations. The boutique hotel they recommended was stunning, and the sunset catamaran cruise was unforgettable.",
   },
 ];
 

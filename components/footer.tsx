@@ -41,7 +41,7 @@ export function Footer() {
                   <Globe className="h-5 w-5 text-white" />
                 </div>
                 <span className="text-xl font-bold tracking-tight">
-                  Global<span className="text-primary">Horizon</span>
+                  Voyage Collective <span className="text-xs text-primary">by VTS</span>
                 </span>
               </div>
               <p className="text-muted-foreground mb-6 max-w-sm">
@@ -154,7 +154,7 @@ export function Footer() {
         <div className="py-6 border-t border-border/50">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-muted-foreground">
-              © 2024 Global Horizon Travel. All rights reserved.
+              © 2024 Voyage Collective by VTS. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-sm text-muted-foreground">
               <a href="#" className="hover:text-foreground transition-colors">
