@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import ConvexClientProvider from "@/lib/convexClient";
 import { AuthProvider } from "@/lib/auth-context";
+import ScrollToTop from "@/components/scroll-to-top";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className={inter.variable}>
         <ConvexClientProvider>
           <AuthProvider>{children}</AuthProvider>
+          <ScrollToTop />
         </ConvexClientProvider>
       </body>
     </html>
