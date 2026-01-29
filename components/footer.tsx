@@ -125,7 +125,7 @@ export function Footer() {
                 </div>
                 <div>
                   <p className="text-sm font-medium">Email Us</p>
-                  <p className="text-sm text-muted-foreground">hello@globalhorizon.com</p>
+                  <p className="text-sm text-muted-foreground">hello@voyagecollective.com</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
