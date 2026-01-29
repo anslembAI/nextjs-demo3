@@ -131,7 +131,12 @@ export function Navbar() {
                 Sign In
               </Button>
             )}
-            <Button className="hidden md:inline-flex">Book Now</Button>
+            <a
+              href="#contact"
+              className="hidden md:inline-flex btn btn--primary"
+            >
+              Book Now
+            </a>
 
             {/* Mobile Menu Button */}
             <Button
@@ -207,7 +212,13 @@ export function Navbar() {
                     Sign In
                   </Button>
                 )}
-                <Button className="flex-1">Book Now</Button>
+                <a
+                  href="#contact"
+                  className="flex-1 btn btn--primary"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Book Now
+                </a>
               </div>
             </div>
           </div>
