@@ -3,7 +3,7 @@ import Image from "next/image"
 import { ArrowRight, CheckCircle2, ShieldCheck, HeartHandshake, Globe } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { PackageCard } from "@/components/shared/PackageCard"
+import { FeaturedPackages } from "@/components/shared/FeaturedPackages"
 import { DestinationCard } from "@/components/shared/DestinationCard"
 import { InquiryForm } from "@/components/shared/InquiryForm"
 import { VirtualTravelVisa } from "@/components/shared/VirtualTravelVisa"
@@ -72,32 +72,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Packages */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-900/50">
-        <div className="container px-4 md:px-6">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <p className="text-primary font-semibold mb-2 uppercase tracking-wide text-sm">Curated Experiences</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">Featured Packages</h2>
-            </div>
-            <Button variant="ghost" className="hidden sm:flex gap-2" asChild>
-              <Link href="/packages">View all packages <ArrowRight className="w-4 h-4" /></Link>
-            </Button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredPackages.map((pkg) => (
-              <PackageCard key={pkg.slug} pkg={pkg} />
-            ))}
-          </div>
-
-          <div className="mt-8 text-center sm:hidden">
-            <Button variant="outline" asChild>
-              <Link href="/packages">View all packages</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* Featured Packages with Currency Toggle */}
+      <FeaturedPackages packages={featuredPackages} />
 
       {/* Popular Destinations */}
       <section className="py-20">
