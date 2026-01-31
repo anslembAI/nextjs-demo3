@@ -42,7 +42,7 @@ export const signUp = mutation({
       .first();
 
     if (existingUser) {
-      throw new Error("User with this email already exists");
+      return { error: "User with this email already exists" };
     }
 
     // Hash the password
@@ -58,7 +58,7 @@ export const signUp = mutation({
       updatedAt: now,
     });
 
-    return { userId, email: args.email, name: args.name };
+    return { userId, email: args.email, name: args.name, error: null };
   },
 });
 

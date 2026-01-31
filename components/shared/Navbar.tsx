@@ -3,13 +3,15 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, MapPin, Calendar, Users, Briefcase } from "lucide-react"
+import { Menu, MapPin, User, LogOut, UserCircle } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet"
 import { Separator } from "@/components/ui/separator"
 import { ModeToggle } from "./ModeToggle"
+import { AuthDialog } from "@/components/auth/auth-dialog"
+import { useAuth } from "@/lib/auth-context"
 
 const navigation = [
     { name: "Home", href: "/" },
@@ -22,6 +24,8 @@ const navigation = [
 export function Navbar() {
     const pathname = usePathname()
     const [isScrolled, setIsScrolled] = React.useState(false)
+    const [isAuthOpen, setIsAuthOpen] = React.useState(false)
+    const { user, isAuthenticated, isLoading: authLoading, signOut } = useAuth()
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -76,6 +80,45 @@ export function Navbar() {
                             Plan a Trip
                         </Button>
                         <ModeToggle />
+
+                        {/* Auth Section */}
+                        {authLoading ? (
+                            <div className="w-20 h-9 animate-pulse bg-muted/50 rounded-full" />
+                        ) : isAuthenticated && user ? (
+                            <div className="flex items-center gap-2 ml-2">
+                                <div
+                                    className={cn(
+                                        "flex items-center gap-2 px-3 py-1.5 rounded-full border",
+                                        showSolidNav
+                                            ? "bg-muted/50 border-border"
+                                            : "bg-white/10 border-white/20"
+                                    )}
+                                    title={user.name}
+                                >
+                                    <UserCircle className={cn("h-5 w-5", !showSolidNav ? "text-white" : "text-primary")} />
+                                    <span className={cn("text-sm font-medium max-w-[80px] truncate hidden lg:block", !showSolidNav ? "text-white" : "text-foreground")}>
+                                        {user.name}
+                                    </span>
+                                </div>
+                                <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    className={cn("rounded-full", !showSolidNav ? "text-white hover:bg-white/20 hover:text-white" : "")}
+                                    onClick={() => signOut()}
+                                    title="Sign Out"
+                                >
+                                    <LogOut className="h-5 w-5" />
+                                </Button>
+                            </div>
+                        ) : (
+                            <Button
+                                variant="ghost"
+                                className={cn("rounded-full", !showSolidNav ? "text-white hover:bg-white/20 hover:text-white" : "")}
+                                onClick={() => setIsAuthOpen(true)}
+                            >
+                                Sign In
+                            </Button>
+                        )}
                     </div>
 
                     {/* Mobile Menu */}
@@ -113,7 +156,35 @@ export function Navbar() {
                                             Vcard
                                         </Link>
                                     </SheetClose>
+
                                     <Separator />
+
+                                    {authLoading ? (
+                                        <div className="w-full h-10 animate-pulse bg-muted/50 rounded-lg" />
+                                    ) : isAuthenticated && user ? (
+                                        <div className="space-y-4">
+                                            <div className="flex items-center gap-3 p-3 rounded-lg bg-muted/50">
+                                                <UserCircle className="h-8 w-8 text-primary" />
+                                                <div className="flex flex-col">
+                                                    <span className="font-medium">{user.name}</span>
+                                                    <span className="text-xs text-muted-foreground">{user.email}</span>
+                                                </div>
+                                            </div>
+                                            <SheetClose asChild>
+                                                <Button variant="outline" className="w-full" onClick={() => signOut()}>
+                                                    <LogOut className="mr-2 h-4 w-4" />
+                                                    Log Out
+                                                </Button>
+                                            </SheetClose>
+                                        </div>
+                                    ) : (
+                                        <SheetClose asChild>
+                                            <Button className="w-full" onClick={() => setIsAuthOpen(true)}>
+                                                Sign In
+                                            </Button>
+                                        </SheetClose>
+                                    )}
+
                                     <Separator />
                                     <div className="flex items-center gap-4">
                                         <ModeToggle />
@@ -128,6 +199,8 @@ export function Navbar() {
                     </div>
                 </div>
             </div>
+
+            <AuthDialog isOpen={isAuthOpen} onOpenChange={setIsAuthOpen} />
         </header>
     )
 }

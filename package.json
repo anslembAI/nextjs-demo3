@@ -10,6 +10,7 @@
     "fetch:images": "tsx scripts/fetch-package-images.ts"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-checkbox": "^1.3.3",
     "@radix-ui/react-dialog": "^1.1.15",
@@ -34,10 +35,12 @@
     "react": "^18",
     "react-day-picker": "^9.13.0",
     "react-dom": "^18",
+    "react-hook-form": "^7.71.1",
     "sharp": "^0.34.5",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
-    "tsx": "^4.21.0"
+    "tsx": "^4.21.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@types/node": "^20",

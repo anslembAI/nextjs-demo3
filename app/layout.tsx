@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ConvexClientProvider from "@/lib/convexClient";
+import { NextAuthProvider } from "@/components/providers/session-provider";
 import { AuthProvider } from "@/lib/auth-context";
 import ScrollToTop from "@/components/scroll-to-top";
 import { Navbar } from "@/components/shared/Navbar";
@@ -34,15 +35,17 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ConvexClientProvider>
-            <AuthProvider>
-              <div className="flex flex-col min-h-screen">
-                <Navbar />
-                <main className="flex-grow">
-                  {children}
-                </main>
-                <Footer />
-              </div>
-            </AuthProvider>
+            <NextAuthProvider>
+              <AuthProvider>
+                <div className="flex flex-col min-h-screen">
+                  <Navbar />
+                  <main className="flex-grow">
+                    {children}
+                  </main>
+                  <Footer />
+                </div>
+              </AuthProvider>
+            </NextAuthProvider>
             <ScrollToTop />
           </ConvexClientProvider>
         </ThemeProvider>
