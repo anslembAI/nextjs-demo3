@@ -54,7 +54,7 @@ export default function Home() {
       </section>
 
       {/* Inquiry Widget Section */}
-      <section className="relative z-20 -mt-24 pb-20 container px-4 md:px-6">
+      <section id="start-journey" className="relative z-20 -mt-24 pb-20 container px-4 md:px-6">
         <div className="bg-card rounded-2xl shadow-xl border border-border/50 p-6 md:p-8 max-w-5xl mx-auto">
           <div className="mb-6">
             <h2 className="text-2xl font-bold">Start Your Journey</h2>

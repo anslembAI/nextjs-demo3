@@ -76,8 +76,8 @@ export function Navbar() {
                         <Button variant="ghost" className={cn("rounded-full", !showSolidNav ? "text-white hover:bg-white/20 hover:text-white" : "")} asChild>
                             <Link href="/#virtual-visa-cards">Vcard</Link>
                         </Button>
-                        <Button className={cn("rounded-full px-6", !showSolidNav ? "bg-white text-primary hover:bg-white/90" : "")}>
-                            Plan a Trip
+                        <Button className={cn("rounded-full px-6", !showSolidNav ? "bg-white text-primary hover:bg-white/90" : "")} asChild>
+                            <Link href="/#start-journey">Plan a Trip</Link>
                         </Button>
                         <ModeToggle />
 
@@ -191,7 +191,9 @@ export function Navbar() {
                                         <span className="text-sm font-medium">Switch Theme</span>
                                     </div>
                                     <SheetClose asChild>
-                                        <Button className="w-full">Plan a Trip</Button>
+                                        <Button className="w-full" asChild>
+                                            <Link href="/#start-journey">Plan a Trip</Link>
+                                        </Button>
                                     </SheetClose>
                                 </div>
                             </SheetContent>
