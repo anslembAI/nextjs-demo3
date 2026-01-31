@@ -4,6 +4,9 @@ import "./globals.css";
 import ConvexClientProvider from "@/lib/convexClient";
 import { AuthProvider } from "@/lib/auth-context";
 import ScrollToTop from "@/components/scroll-to-top";
+import { Navbar } from "@/components/shared/Navbar";
+import { Footer } from "@/components/shared/Footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,8 +15,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Voyage Collective by VTS | Premium Travel Experiences",
-  description: "Discover the world with Voyage Collective by VTS. Premium travel experiences, curated destinations, and personalized journeys await.",
+  title: "LuxeTravel | Premium Travel Experiences",
+  description: "Discover the world with LuxeTravel. Premium travel experiences, curated destinations, and personalized journeys await.",
 };
 
 export default function RootLayout({
@@ -24,10 +27,25 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.variable}>
-        <ConvexClientProvider>
-          <AuthProvider>{children}</AuthProvider>
-          <ScrollToTop />
-        </ConvexClientProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ConvexClientProvider>
+            <AuthProvider>
+              <div className="flex flex-col min-h-screen">
+                <Navbar />
+                <main className="flex-grow">
+                  {children}
+                </main>
+                <Footer />
+              </div>
+            </AuthProvider>
+            <ScrollToTop />
+          </ConvexClientProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

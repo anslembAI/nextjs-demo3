@@ -1,41 +1,36 @@
-# Voyage Collective by VTS
+# LuxeTravel
 
-A modern, premium travel agency landing page built with Next.js, TypeScript, Tailwind CSS, and shadcn/ui components.
+A modern, premium travel agency website built with Next.js 14+ (App Router), TypeScript, Tailwind CSS, and shadcn/ui components.
 
-## Theme: "Voyage Collective by VTS"
+## Theme: LuxeTravel
 
 A modern, premium travel + AI-forward theme with:
 - Global, sleek, premium, airy aesthetic
-- Apple-clean design + airline premium cabin + map/aviation hints
+- Deep blue primary with teal/gold accents
 - High readability, strong hierarchy, modern motion (subtle)
 - Full Light and Dark mode support
 - Excellent mobile + desktop responsiveness
 
 ## Features
 
-- **Sticky Navigation** with blur effect and gradient line
-- **Hero Section** with search form and popular destinations
-- **Destination Cards** with hover effects and badges
-- **Testimonials** section with ratings
-- **Footer** with contact information and social links
-- **Dark Mode** toggle with local storage persistence
+- **Sticky Navigation** with blur effect and mobile sheet menu
+- **Hero Section** with video/image background
+- **Packages Listing** with filters (Price, Duration, Type)
+- **Package Details** with tabs (Overview, Itinerary, Includes, FAQ)
+- **Destinations Grid** with hover effects
+- **Contact Page** with validation and office info
+- **Inquiry Form** reusable component
+- **Dark Mode** toggle
 - **Responsive Design** for all screen sizes
-- **Accessibility** features (AA contrast, focus outlines)
 
-## Color System
+## Tech Stack
 
-### Light Mode
-- Primary (Ocean): #2563EB
-- Accent (Aurora): #22C55E
-- Accent 2 (Sunset): #F59E0B
-- Background: #FFFFFF
-- Surface-2: #F5F7FB
-
-### Dark Mode
-- Background: #070B14
-- Surface: #0B1220
-- Surface-2: #0F172A
-- Text: #E5E7EB
+- **Framework**: Next.js 14+ (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Icons**: Lucide React
+- **Animations**: Framer Motion & Tailwind Animate
+- **Forms**: React Hook Form (or simple state)
 
 ## Getting Started
 
@@ -49,142 +44,39 @@ A modern, premium travel + AI-forward theme with:
 1. Install dependencies:
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
 ```
 
 2. Run the development server:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 3. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Build for Production
-
-```bash
-npm run build
-npm start
-```
 
 ## Project Structure
 
 ```
 ├── app/
-│   ├── globals.css          # Global styles with CSS variables
+│   ├── api/                 # API routes
+│   ├── about/               # About page
+│   ├── contact/             # Contact page
+│   ├── destinations/        # Destinations listing
+│   ├── packages/            # Packages listing & details
+│   ├── globals.css          # Global styles
 │   ├── layout.tsx           # Root layout
 │   └── page.tsx             # Home page
 ├── components/
-│   ├── ui/                  # shadcn/ui components
-│   │   ├── button.tsx
-│   │   ├── card.tsx
-│   │   ├── badge.tsx
-│   │   └── input.tsx
-│   ├── navbar.tsx           # Navigation component
-│   ├── hero.tsx             # Hero section
-│   ├── destinations.tsx     # Destinations grid
-│   ├── testimonials.tsx     # Testimonials section
-│   └── footer.tsx           # Footer component
+│   ├── shared/              # Shared components (Navbar, Footer, Cards, etc.)
+│   ├── ui/                  # shadcn/ui primitives
+│   ├── theme-provider.tsx   # Next-themes provider
+│   └── scroll-to-top.tsx    # Scroll to top button
+├── data/
+│   ├── packages.ts          # Mock package data
+│   └── destinations.ts      # Mock destination data
 ├── lib/
 │   └── utils.ts             # Utility functions
-├── .vscode/
-│   └── settings.json        # VS Code settings
-├── .eslintrc.json         # ESLint configuration
-├── .stylelintrc.json      # Stylelint configuration
-├── .prettierrc.json       # Prettier configuration
 └── public/                  # Static assets
 ```
-
-## Component Library
-
-This project uses shadcn/ui as the component library. Components are built with:
-
-- **Tailwind CSS** for styling
-- **class-variance-authority** for variant management
-- **clsx** and **tailwind-merge** for className merging
-- **Lucide React** for icons
-
-## Custom Components
-
-### Button
-```tsx
-<Button variant="default" size="default">Click me</Button>
-```
-
-### Card
-```tsx
-<Card>
-  <CardHeader>
-    <CardTitle>Title</CardTitle>
-  </CardHeader>
-  <CardContent>Content</CardContent>
-</Card>
-```
-
-### Badge
-```tsx
-<Badge variant="default">Label</Badge>
-```
-
-## Styling System
-
-### Utility Classes
-
-- `.container` - Max-width container with padding
-- `.section` - Section with vertical padding
-- `.card` - Card component with hover effect
-- `.btn` - Button base styles
-- `.input` - Input field styles
-- `.badge` - Badge component
-- `.overline` - Section label/overline
-
-### Animations
-
-- `animate-fade-in` - Fade in animation
-- `animate-slide-up` - Slide up animation
-- `animate-slide-down` - Slide down animation
-- `animation-delay-100` - 0.1s delay
-- `animation-delay-200` - 0.2s delay
-- `animation-delay-300` - 0.3s delay
-
-### Responsive Typography
-
-- `text-responsive-h1` - Responsive H1 (clamp-based)
-- `text-responsive-h2` - Responsive H2 (clamp-based)
-
-## Configuration Files
-
-### VS Code Settings
-The [`.vscode/settings.json`](.vscode/settings.json:1) file configures VS Code to:
-- Disable CSS validation for Tailwind CSS
-- Enable stylelint for CSS and SCSS files
-- Associate `.css` files with Tailwind CSS syntax
-
-### Stylelint Configuration
-The [`.stylelintrc.json`](.stylelintrc.json:1) file configures Stylelint to:
-- Ignore Tailwind-specific at-rules (`@tailwind`, `@apply`, `@layer`)
-- Disable rules that conflict with Tailwind's utility classes
-- Support PostCSS syntax for CSS files
-
-### ESLint Configuration
-The [`.eslintrc.json`](.eslintrc.json:1) file extends Next.js core web vitals and customizes rules.
-
-### Prettier Configuration
-The [`.prettierrc.json`](.prettierrc.json:1) file configures code formatting rules.
-
-## Accessibility
-
-- AA contrast ratio compliance
-- Visible focus outlines
-- Keyboard navigation support
-- Screen reader friendly
-- `prefers-reduced-motion` support
 
 ## License
 
