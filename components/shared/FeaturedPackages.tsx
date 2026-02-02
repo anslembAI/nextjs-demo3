@@ -60,7 +60,7 @@ export function FeaturedPackages({ packages }: FeaturedPackagesProps) {
                         </div>
 
                         <Button variant="ghost" className="hidden sm:flex gap-2" asChild>
-                            <Link href="/packages">View all packages <ArrowRight className="w-4 h-4" /></Link>
+                            <Link href="/?view=packages">View all packages <ArrowRight className="w-4 h-4" /></Link>
                         </Button>
                     </div>
                 </div>
@@ -78,7 +78,7 @@ export function FeaturedPackages({ packages }: FeaturedPackagesProps) {
 
                 <div className="mt-8 text-center sm:hidden">
                     <Button variant="outline" asChild>
-                        <Link href="/packages">View all packages</Link>
+                        <Link href="/?view=packages">View all packages</Link>
                     </Button>
                 </div>
             </div>

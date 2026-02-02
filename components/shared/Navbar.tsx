@@ -15,10 +15,10 @@ import { useAuth } from "@/lib/auth-context"
 
 const navigation = [
     { name: "Home", href: "/" },
-    { name: "Packages", href: "/packages" },
-    { name: "Destinations", href: "/destinations" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+    { name: "Packages", href: "/?view=packages" },
+    { name: "Destinations", href: "/?view=destinations" },
+    { name: "About", href: "/?view=about" },
+    { name: "Contact", href: "/?view=contact" },
 ]
 
 export function Navbar() {
@@ -74,10 +74,10 @@ export function Navbar() {
                             </Link>
                         ))}
                         <Button variant="ghost" className={cn("rounded-full", !showSolidNav ? "text-white hover:bg-white/20 hover:text-white" : "")} asChild>
-                            <Link href="/#virtual-visa-cards">Vcard</Link>
+                            <Link href="/?view=home#virtual-visa-cards">Vcard</Link>
                         </Button>
                         <Button className={cn("rounded-full px-6", !showSolidNav ? "bg-white text-primary hover:bg-white/90" : "")} asChild>
-                            <Link href="/#start-journey">Plan a Trip</Link>
+                            <Link href="/?view=home#start-journey">Plan a Trip</Link>
                         </Button>
                         <ModeToggle />
 
@@ -150,7 +150,7 @@ export function Navbar() {
                                     ))}
                                     <SheetClose asChild>
                                         <Link
-                                            href="/#virtual-visa-cards"
+                                            href="/?view=home#virtual-visa-cards"
                                             className="text-lg font-medium transition-colors hover:text-primary"
                                         >
                                             Vcard
@@ -192,7 +192,7 @@ export function Navbar() {
                                     </div>
                                     <SheetClose asChild>
                                         <Button className="w-full" asChild>
-                                            <Link href="/#start-journey">Plan a Trip</Link>
+                                            <Link href="/?view=home#start-journey">Plan a Trip</Link>
                                         </Button>
                                     </SheetClose>
                                 </div>

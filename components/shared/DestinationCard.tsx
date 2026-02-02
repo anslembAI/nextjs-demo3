@@ -11,7 +11,7 @@ interface DestinationCardProps {
 
 export function DestinationCard({ destination }: DestinationCardProps) {
     return (
-        <Link href={`/destinations`}>
+        <Link href={`/?view=destinations`}>
             <Card className="group relative overflow-hidden h-[300px] border-none shadow-none text-white">
                 <Image
                     src={destination.image}
