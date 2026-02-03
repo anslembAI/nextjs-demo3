@@ -9,6 +9,7 @@ export default defineSchema({
     passwordHash: v.optional(v.string()), // For email/password authentication
     image: v.optional(v.string()),
     emailVerified: v.optional(v.number()),
+    role: v.optional(v.string()),
     createdAt: v.number(),
     updatedAt: v.number(),
   })

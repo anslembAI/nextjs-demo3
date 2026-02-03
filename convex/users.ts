@@ -34,6 +34,7 @@ export const create = mutation({
     email: v.string(),
     image: v.optional(v.string()),
     emailVerified: v.optional(v.number()),
+    role: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     const now = Date.now();
@@ -52,6 +53,7 @@ export const update = mutation({
     email: v.optional(v.string()),
     image: v.optional(v.string()),
     emailVerified: v.optional(v.number()),
+    role: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
     const { id, ...updates } = args;
