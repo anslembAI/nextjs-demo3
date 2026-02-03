@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useSearchParams } from "next/navigation"
 import { Menu, MapPin, User, LogOut, UserCircle } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -23,6 +23,9 @@ const navigation = [
 
 export function Navbar() {
     const pathname = usePathname()
+    const searchParams = useSearchParams()
+    const view = searchParams.get('view')
+
     const [isScrolled, setIsScrolled] = React.useState(false)
     const [isAuthOpen, setIsAuthOpen] = React.useState(false)
     const { user, isAuthenticated, isLoading: authLoading, signOut } = useAuth()
@@ -35,7 +38,7 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
 
-    const isHomePage = pathname === "/"
+    const isHomePage = pathname === "/" && (!view || view === 'home')
     const showSolidNav = isScrolled || !isHomePage
 
     return (

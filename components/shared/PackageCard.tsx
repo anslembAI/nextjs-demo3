@@ -52,8 +52,8 @@ export function PackageCard({ pkg }: PackageCardProps) {
                     Experience the best of {pkg.location} with our exclusive {pkg.durationDays}-day tour.
                 </p>
 
-                <div className="flex items-center gap-4 text-sm text-slate-600">
-                    <div className="flex items-center gap-1.5 bg-slate-100 px-2.5 py-1 rounded-md">
+                <div className="flex items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
+                    <div className="flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-md">
                         <Clock className="w-4 h-4 text-primary" />
                         <span>{pkg.durationDays} Days</span>
                     </div>

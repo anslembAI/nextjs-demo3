@@ -16,7 +16,7 @@ export function ContactView() {
                     </div>
 
                     <div className="space-y-6">
-                        <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors">
+                        <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div className="bg-primary/10 p-3 rounded-full text-primary">
                                 <MapPin className="w-6 h-6" />
                             </div>
@@ -26,7 +26,7 @@ export function ContactView() {
                             </div>
                         </div>
 
-                        <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors">
+                        <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div className="bg-primary/10 p-3 rounded-full text-primary">
                                 <Phone className="w-6 h-6" />
                             </div>
@@ -37,7 +37,7 @@ export function ContactView() {
                             </div>
                         </div>
 
-                        <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors">
+                        <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                             <div className="bg-primary/10 p-3 rounded-full text-primary">
                                 <Mail className="w-6 h-6" />
                             </div>
