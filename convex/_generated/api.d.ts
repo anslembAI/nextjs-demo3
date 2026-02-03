@@ -12,9 +12,11 @@ import type * as admin from "../admin.js";
 import type * as auth from "../auth.js";
 import type * as bookings from "../bookings.js";
 import type * as destinations from "../destinations.js";
+import type * as invoices from "../invoices.js";
 import type * as migrations from "../migrations.js";
 import type * as passwordAuth from "../passwordAuth.js";
 import type * as seed from "../seed.js";
+import type * as settings from "../settings.js";
 import type * as testimonials from "../testimonials.js";
 import type * as users from "../users.js";
 
@@ -29,9 +31,11 @@ declare const fullApi: ApiFromModules<{
   auth: typeof auth;
   bookings: typeof bookings;
   destinations: typeof destinations;
+  invoices: typeof invoices;
   migrations: typeof migrations;
   passwordAuth: typeof passwordAuth;
   seed: typeof seed;
+  settings: typeof settings;
   testimonials: typeof testimonials;
   users: typeof users;
 }>;

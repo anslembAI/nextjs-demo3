@@ -93,4 +93,42 @@ export default defineSchema({
   })
     .index("by_provider", ["provider", "providerAccountId"])
     .index("by_userId", ["userId"]),
+
+  // Invoices table
+  invoices: defineTable({
+    invoiceId: v.string(), // Custom ID e.g., 20231027-001
+    userId: v.id("users"),
+    items: v.array(
+      v.object({
+        description: v.string(),
+        quantity: v.number(),
+        price: v.number(),
+      })
+    ),
+    currency: v.string(), // "TTD" or "USD"
+    conversionRate: v.number(), // Rate used at time of invoice
+    totalAmount: v.number(),
+    notes: v.optional(v.string()),
+    status: v.string(), // "pending", "paid", "cancelled"
+    dueDate: v.number(),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_userId", ["userId"])
+    .index("by_invoiceId", ["invoiceId"])
+    .index("by_createdAt", ["createdAt"]),
+
+  // Bank Accounts table (Admin Settings)
+  bankAccounts: defineTable({
+    bankName: v.string(),
+    accountName: v.string(),
+    accountNumber: v.string(),
+    routingNumber: v.string(),
+    bankAddress: v.string(),
+    accountType: v.string(), // "Savings", "Checking"
+    currency: v.string(), // "TTD", "USD"
+    isActive: v.boolean(),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  }),
 });
