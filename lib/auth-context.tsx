@@ -9,6 +9,7 @@ interface User {
   name: string;
   email: string;
   image?: string;
+  role?: string;
   createdAt: number;
   updatedAt: number;
 }
@@ -96,9 +97,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setSessionToken(null);
   }, [sessionToken, signOutMutation]);
 
+  const isConvexLoading = sessionToken !== null && currentUser === undefined;
+  const isAuthLoading = isLoading || isConvexLoading;
+
   const value: AuthContextType = {
     user: currentUser || null,
-    isLoading,
+    isLoading: isAuthLoading,
     isAuthenticated: !!currentUser,
     sessionToken,
     signIn,

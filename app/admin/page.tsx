@@ -16,11 +16,37 @@ import { SettingsView } from "@/components/admin/SettingsView";
 import { DashboardContent } from "@/components/admin/DashboardContent";
 import { UsersContent } from "@/components/admin/UsersContent";
 
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/lib/auth-context";
+import { useEffect } from "react";
+
 export default function AdminPage() {
     const [activeTab, setActiveTab] = useState<"dashboard" | "users" | "invoices" | "settings">("dashboard");
+    const { user, isLoading } = useAuth();
+    const router = useRouter();
+
+    useEffect(() => {
+        if (!isLoading) {
+            if (!user || user.role?.toLowerCase() !== "admin") {
+                router.push("/404");
+            }
+        }
+    }, [user, isLoading, router]);
+
+    if (isLoading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-surface-2/50">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+            </div>
+        );
+    }
+
+    if (!user || user.role?.toLowerCase() !== "admin") {
+        return null; // Don't render anything while redirecting
+    }
 
     return (
-        <div className="min-h-screen bg-surface-2/50 p-4 md:p-8 pt-24">
+        <div className="min-h-screen bg-surface-2/50 p-4 md:p-8 pt-32">
             <div className="mx-auto max-w-7xl">
                 {/* Header */}
                 <header className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
