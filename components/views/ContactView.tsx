@@ -2,7 +2,7 @@
 import { InquiryForm } from "@/components/shared/InquiryForm"
 import { MapPin, Phone, Mail } from "lucide-react"
 
-export function ContactView() {
+export function ContactView({ packageTitle }: { packageTitle?: string }) {
     return (
         <div className="container px-4 md:px-6 py-12 pt-28 bg-background animate-fade-in">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -70,7 +70,7 @@ export function ContactView() {
 
                 <div className="bg-card shadow-xl rounded-3xl p-8 border border-border/50">
                     <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
-                    <InquiryForm className="space-y-4" />
+                    <InquiryForm className="space-y-4" packageTitle={packageTitle} />
                 </div>
             </div>
         </div>

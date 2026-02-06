@@ -19,7 +19,8 @@ export default async function Page({
     case 'about':
       return <AboutView />;
     case 'contact':
-      return <ContactView />;
+      const packageTitle = typeof params.package === 'string' ? params.package : undefined
+      return <ContactView packageTitle={packageTitle} />;
     case 'destinations':
       return <DestinationsView />;
     case 'packages':

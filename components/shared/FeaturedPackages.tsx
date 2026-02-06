@@ -158,7 +158,7 @@ function PackageCardWithCurrency({ pkg, displayPrice, currencySymbol }: PackageC
                     <Link href={`/packages/${pkg.slug}`}>View Details</Link>
                 </Button>
                 <Button asChild className="flex-1 gap-2">
-                    <Link href={`/packages/${pkg.slug}#inquire`}>
+                    <Link href={`/?view=contact&package=${encodeURIComponent(pkg.title)}`}>
                         Book Now <ArrowRight className="w-4 h-4" />
                     </Link>
                 </Button>
